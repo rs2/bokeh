@@ -8,7 +8,7 @@
 
 #-----------------------------------------------------------------------------
 # Boilerplate
-#----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 from __future__ import absolute_import, division, print_function, unicode_literals
 
 import pytest ; pytest
@@ -49,7 +49,7 @@ api = {
 
 }
 
-test_public_api, test_internal_api, test_all_declared, test_all_tested = verify_api(bes, api)
+Test_api = verify_api(bes, api)
 
 #-----------------------------------------------------------------------------
 # Setup
@@ -208,6 +208,26 @@ class TestServerSession(object):
     def test_resources_none(self, test_plot):
         r = bes.server_session(test_plot, session_id='fakesession', resources=None)
         assert 'resources=none' in r
+
+    def test_model_none(self):
+        r = bes.server_session(None, session_id='fakesession')
+        html = bs4.BeautifulSoup(r, "lxml")
+        scripts = html.findAll(name='script')
+        assert len(scripts) == 1
+        attrs = scripts[0].attrs
+        assert set(attrs), set([
+            'src',
+            'data-bokeh-doc-id',
+            'data-bokeh-model-id',
+            'id'
+        ])
+        divid = attrs['id']
+        src = "%s/autoload.js?bokeh-autoload-element=%s&bokeh-absolute-url=%s&bokeh-session-id=fakesession" % \
+              ("http://localhost:5006", divid, "http://localhost:5006")
+        assert attrs == { 'data-bokeh-doc-id' : '',
+                          'data-bokeh-model-id' : '',
+                          'id' : divid,
+                          'src' : src }
 
     def test_general(self, test_plot):
         r = bes.server_session(test_plot, session_id='fakesession')

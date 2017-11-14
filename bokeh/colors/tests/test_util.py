@@ -8,7 +8,7 @@
 
 #-----------------------------------------------------------------------------
 # Boilerplate
-#----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 from __future__ import absolute_import, division, print_function, unicode_literals
 
 import pytest ; pytest
@@ -48,7 +48,7 @@ api = {
 
 }
 
-test_public_api, test_internal_api, test_all_declared, test_all_tested = verify_api(bcu, api)
+Test_api = verify_api(bcu, api)
 
 #-----------------------------------------------------------------------------
 # Setup

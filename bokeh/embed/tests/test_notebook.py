@@ -8,7 +8,7 @@
 
 #-----------------------------------------------------------------------------
 # Boilerplate
-#----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 from __future__ import absolute_import, division, print_function, unicode_literals
 
 import pytest ; pytest
@@ -40,15 +40,15 @@ api = {
 
     PUBLIC: (
 
-        ( 'notebook_content', (1,0,0) ),
-
     ), INTERNAL: (
+
+        ( 'notebook_content', (1,0,0) ),
 
     )
 
 }
 
-test_public_api, test_internal_api, test_all_declared, test_all_tested = verify_api(ben, api)
+Test_api = verify_api(ben, api)
 
 #-----------------------------------------------------------------------------
 # Setup

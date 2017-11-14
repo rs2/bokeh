@@ -8,7 +8,7 @@
 
 #-----------------------------------------------------------------------------
 # Boilerplate
-#----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 from __future__ import absolute_import, division, print_function, unicode_literals
 
 import pytest ; pytest
@@ -48,7 +48,7 @@ api = {
 
 }
 
-test_public_api, test_internal_api, test_all_declared, test_all_tested = verify_api(biu, api)
+Test_api = verify_api(biu, api)
 
 #-----------------------------------------------------------------------------
 # Setup
@@ -63,7 +63,7 @@ test_public_api, test_internal_api, test_all_declared, test_all_tested = verify_
 #-----------------------------------------------------------------------------
 
 def test_detect_current_filename():
-    assert biu.detect_current_filename().endswith("py.test")
+    assert biu.detect_current_filename().endswith(("py.test", "pytest"))
 
 @patch('bokeh.io.util.NamedTemporaryFile')
 def test_temp_filename(mock_tmp):

@@ -11,7 +11,7 @@
 
 #-----------------------------------------------------------------------------
 # Boilerplate
-#----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 from __future__ import absolute_import, division, print_function, unicode_literals
 
 import logging
@@ -122,7 +122,7 @@ class Color(object):
         *Subclasses must implement this method.*
 
         Args:
-            value (RGB) :
+            value (:class:`~bokeh.colors.rgb.RGB`) :
                 A color to convert from RGB
 
         Returns:
@@ -179,7 +179,7 @@ class Color(object):
         *Subclasses must implement this method.*
 
         Returns:
-            RGB
+            :class:`~bokeh.colors.rgb.RGB`
 
         '''
         raise NotImplementedError

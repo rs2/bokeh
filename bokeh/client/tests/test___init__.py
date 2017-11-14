@@ -8,7 +8,7 @@
 
 #-----------------------------------------------------------------------------
 # Boilerplate
-#----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 from __future__ import absolute_import, division, print_function, unicode_literals
 
 import pytest ; pytest
@@ -25,6 +25,7 @@ from bokeh.util.testing import verify_api ; verify_api
 # External imports
 
 # Bokeh imports
+from bokeh.util.testing import verify_all
 
 # Module under test
 import bokeh.client as bc
@@ -45,9 +46,4 @@ ALL = (
 # Public API
 #-----------------------------------------------------------------------------
 
-def test___all__():
-    assert bc.__all__ == ALL
-
-@pytest.mark.parametrize('name', ALL)
-def test_contents(name):
-    assert hasattr(bc, name)
+Test___all__ = verify_all(bc, ALL)

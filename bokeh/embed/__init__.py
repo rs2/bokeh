@@ -11,7 +11,7 @@
 
 #-----------------------------------------------------------------------------
 # Boilerplate
-#----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 from __future__ import absolute_import, division, print_function, unicode_literals
 
 import logging
@@ -33,8 +33,6 @@ from bokeh.util.api import public, internal ; public, internal
 # Public API
 #-----------------------------------------------------------------------------
 
-from .notebook import notebook_content
-
 from .server import server_document
 from .server import server_session
 
@@ -47,7 +45,6 @@ __all__ = (
     'autoload_static',
     'components',
     'file_html',
-    'notebook_content',
     'server_document',
     'server_session',
 )
